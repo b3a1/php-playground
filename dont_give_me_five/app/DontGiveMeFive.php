@@ -1,4 +1,7 @@
 <?php
+
+namespace App;
+
 /**
  * In this kata you get the start number and the end number of a region and should return the count of all numbers except numbers with a 5 in it. 
  * The start and the end number are both inclusive!
@@ -9,14 +12,17 @@
  * The result may contain fives. ;-)
  * The start number will always be smaller than the end number. Both numbers can be also negative!
  */
-function dont_give_me_five($start, $end) 
+class DontGiveMeFive
 {
-    $count = 0;
-    for($i=$start;$i<=$end;$i++) 
+    public static function execute($start, $end) 
     {
-        if(preg_match('*5*', (string)$i) == FALSE)
-            ++$count;
+        $count = 0;
+        for($i=$start;$i<=$end;$i++) 
+        {
+            if(preg_match('*5*', (string)$i) == FALSE)
+                ++$count;
+        }
+        
+        return $count;
     }
-    
-    return $count;
 }
