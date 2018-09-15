@@ -15,6 +15,12 @@ namespace App;
  */
 class WhoLikesIt
 {
+    /**
+     * Executes this class solution.
+     * 
+     * @param  array  $names
+     * @return string
+     */
     public static function execute($names)
     {
         $namesLength = sizeof($names);
@@ -22,20 +28,22 @@ class WhoLikesIt
         switch($namesLength)
         {
             case 0:
-                return 'no one likes this';
+                $string = 'no one likes this';
             break;
             case 1:
-                return $names[0].' likes this';
+                $string = sprintf('%s likes this', $names[0]);
             break;
             case 2:
-                return $names[0].' and '.$names[1].' like this';
+                $string = sprintf('%s and %s like this', $names[0], $names[1]);
             break;
             case 3:
-                return $names[0].', '.$names[1].' and '.$names[2].' like this';
+                $string = sprintf('%s, %s and %s like this', $names[0], $names[1], $names[2]);
             break;
             default:
-                return $names[0].', '.$names[1].' and '.($namesLength-2).' others like this';
+                $string = sprintf('%s, %s and %d others like this', $names[0], $names[1], $namesLength-2);
             break;
         }
+
+        return $string;
     }
 }
