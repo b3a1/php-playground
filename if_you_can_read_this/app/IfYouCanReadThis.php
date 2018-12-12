@@ -10,16 +10,7 @@ class IfYouCanReadThis
 {
     static function execute(string $string)
     {
-        $commands = [
-            'a' => 'Alfa', 'b' => 'Bravo', 'c' => 'Charlie', 'd' => 'Delta', 
-            'e' => 'Echo', 'f' => 'Foxtrot', 'g' => 'Golf', 'h' => 'Hotel', 
-            'i' => 'India', 'j' => 'Juliett', 'k' => 'Kilo', 'l' => 'Lima', 
-            'm' => 'Mike', 'n' => 'November', 'o' => 'Oscar', 'p' => 'Papa', 
-            'q' => 'Quebec', 'r' => 'Romeo', 's' => 'Sierra', 't' => 'Tango', 
-            'u' => 'Uniform', 'v' => 'Victor', 'w' => 'Whiskey', 'x' => 'X-ray', 
-            'y' => 'Yankee', 'z' => 'Zulu',
-        ];
-
+        $commands = ['a' => 'Alfa', 'b' => 'Bravo', 'c' => 'Charlie', 'd' => 'Delta', 'e' => 'Echo', 'f' => 'Foxtrot', 'g' => 'Golf', 'h' => 'Hotel', 'i' => 'India', 'j' => 'Juliett', 'k' => 'Kilo', 'l' => 'Lima', 'm' => 'Mike', 'n' => 'November', 'o' => 'Oscar', 'p' => 'Papa', 'q' => 'Quebec', 'r' => 'Romeo', 's' => 'Sierra', 't' => 'Tango', 'u' => 'Uniform', 'v' => 'Victor', 'w' => 'Whiskey', 'x' => 'X-ray', 'y' => 'Yankee', 'z' => 'Zulu',];
         $in = str_split(strtolower($string));
         $out = "";
 
@@ -33,14 +24,7 @@ class IfYouCanReadThis
             // concatenate space to $out string if current iteration is not the last $in character
             if(sizeof($in) - 1 !== $i) $addSpace = true;
 
-            if(isset($commands[$val])) 
-            {
-                $out .= $commands[$val];
-            }
-            else
-            {
-                $out .= $val;
-            }
+            $out .= $commands[$val] ?? $val;
 
             if($addSpace) $out .= " ";
         }
