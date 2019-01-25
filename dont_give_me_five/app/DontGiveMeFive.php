@@ -19,8 +19,10 @@ class DontGiveMeFive
         $count = 0;
         for($i=$start;$i<=$end;$i++) 
         {
-            if(preg_match('*5*', (string)$i) == FALSE)
-                ++$count;
+            if($i % 5 === 0 && $i % 10 !== 0) {
+                continue;
+            }
+            ++$count;
         }
         
         return $count;
