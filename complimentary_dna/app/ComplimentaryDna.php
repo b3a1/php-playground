@@ -17,26 +17,12 @@ class ComplimentaryDna
     public function execute($dna)
     {
         $dnaArr = str_split($dna);
+        $array = array('A'=>'T','T'=>'A','G'=>'C','C'=>'G');
         $str = "";
-        foreach((array) $dnaArr as $c) {    
-            switch($c) {
-            case 'A':
-                $newC = 'T';
-            break;
-            case 'T':
-                $newC = 'A';
-            break;
-            case 'G':
-                $newC = 'C';
-            break;
-            case 'C':
-                $newC = 'G';
-            break;
-            default:
-                $newC = $c;
-            break;
-            }
-            $str .= $newC;
+
+        foreach($dnaArr as $c) {    
+
+            $str .= $array[$c];
         }
         
         return $str;
